@@ -13,6 +13,7 @@
 | **612-2** | Bacterial strain [Type] in Isolate by Bacteria subtyping | MLST Sequence Type (ST) |
 | **104274-6** | Abnormal clonal sequences [Nucleotide sequence] | Clonal Complex |
 | **52107-0** | Bacterial capsule [Identifier] in Specimen | Capsule Type |
+| **SP000682** | Core genome MLST [Type] in Isolate by Sequencing | cgMLST |
 
 
 ### SNOMED CT Codes
@@ -24,7 +25,7 @@
 | **765422000** | Product containing beta-lactam (product) |
 | **350134005** | Product containing carbapenem (product) |
 | **324116004** | Product containing aminoglycoside (product) |
-| **838284008** | Fluoroquinolone (substance) |
+| **1010205001** | Medicinal product containing fluoroquinolone and acting as antibacterial agent |
 | **763878009** | Product containing macrolide (product) |
 | **66261008** | Product containing tetracycline (medicinal product) |
 | **763875007** | Product containing sulfonamide (product) |
@@ -38,10 +39,11 @@
 | **1098201000112108** | Carbapenemase-producing *Klebsiella pneumoniae* | Diagnostic conclusion (CRE) |
 | **409801009** | Extended spectrum beta-lactamase producing *Klebsiella pneumoniae* | Diagnostic conclusion (ESBL) |
 | **714315002** | Multidrug-resistant *Klebsiella pneumoniae* | Diagnostic conclusion (MDR) |
-| **XDR001** | Extensively drug resistant organism | Diagnostic conclusion (XDR) |
+| **SP000681** | Extensively drug resistant klebsiella | Diagnostic conclusion (XDR) |
 
 **External Naming Systems**
 | System URI | Description |
 | :--- | :--- |
-| `http://pubmlst.org/klebsiella` | Used for MLST Sequence Types. |
-| `http://kaptive.holtlab.net/capsule` | Used for Capsule Typing. |
+| `http://pubmlst.org/klebsiella` | MLST Sequence Types. |
+
+| `http://kaptive.holtlab.net/capsule` | Capsule Typing. |

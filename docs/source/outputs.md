@@ -51,11 +51,15 @@ results/
 ├── lineage/
 │   └── *.lineage.json           
 ├── fhir/
-│   └── *.fhir.json               
+│   └── *.fhir.json
+├── cgmlst/
+│   └── results_alleles.tsv
+│   └── cgmlst_statistics.txt          
 ├── fhir_merged/
 │   └── *.merged.fhir.json      
 ├── fhir_validated/
 │   ├── *.validation.txt  
 ├── reports/
 │   └── *.summary_report.txt  
+
 ```

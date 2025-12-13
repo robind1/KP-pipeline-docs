@@ -9,6 +9,7 @@ The main workflow handles channel processing and parallel execution.
 *   **Parallel Processing**: Input streams are processed concurrently.
 *   **Channel Merging**: Assemblies from different streams are routed to unified channels for downstream processes:
     *   Typing (MLST, Serotyping, Virulence, Resistance)
+    *   cgMLST
     *   FHIR resource generation
     *   Clinical data integration
     *   MultiQC aggregate reporting
@@ -18,28 +19,34 @@ The main workflow handles channel processing and parallel execution.
 
 For Oxford Nanopore Technologies (ONT) sequencing data.
 
-1.  **Quality Control**: 
+1.  **Trimming**:
+    *   Tool: `chopper`
+    *   Actions: Quality trimming.
+2.  **Quality Control**: 
     *   Tool: `FastQC`
     *   Metrics: Per-sample quality, GC content, per-base sequence quality.
-2.  **Assembly and Polishing**:
-    *   Tool: `Minimap2` and `Miniasm`
+3.  **Assembly**:
+    *   Tool: `Flye`
     *   Process: Generates a de novo assembly from long reads.
-    *   *Note*: Workflow contains provisions for `Flye` assembly and `Medaka` polishing as alternative configurations.
+4.  **Polishing**:
+    *   Tool: `medaka`
+    *   Process: Maps reads back to the assembly using to correct base errors.
 
 ## Illumina (Short-Read) Workflow
 **File:** `illumina.nf`
 
 For Illumina sequencing data.
 
-1.  **Trimming & QC**:
+1.  **Trimming**:
     *   Tool: `fastp`
     *   Actions: Adapter removal, quality trimming.
+2.  **QC**:
     *   Tool: `FastQC`
     *   Actions: Per-sample quality, GC content, per-base sequence quality.
-2.  **De Novo Assembly**:
+3.  **De Novo Assembly**:
     *   Tool: `Megahit` or `SPAdes`
     *   Process: Generates a de novo assembly from short reads.
-3.  **Polishing**:
+4.  **Polishing**:
     *   Tool: `Pilon`
     *   Process: Maps reads back to the assembly using to correct base errors.
 
@@ -54,6 +61,15 @@ Performs genomic characterization of the assembled contigs.
     *   **Virulence**: Detects key virulence factors (Yersiniabactin, Colibactin, Aerobactin, Salmochelin, RmpADC, RmpA2) and calculates virulence score.
     *   **Resistance**: Identifies acquired resistance genes (ESBLs, Carbapenemases) and chromosomal mutations.
 
+## cgMLST Analysis
+
+Performs genomic characterization of the assembled contigs.
+
+1.  **Genotyping Tool**: `Kleborate`
+    *   **MLST**: Determines Sequence Type (ST) and Clonal Complex.
+    *   **Serotyping**: Predicts Capsule (K) and O antigen loci using `Kaptive`.
+    *   **Virulence**: Detects key virulence factors (Yersiniabactin, Colibactin, Aerobactin, Salmochelin, RmpADC, RmpA
+
 ## FHIR Converter
 
 Converts genomic typing data into HL7 FHIR R4 standard resources.
@@ -66,4 +82,5 @@ Converts genomic typing data into HL7 FHIR R4 standard resources.
     *   **Virulence**: Virulence scores and factors mapped to observation components.
 3.  **Resource Creation**:
     *   Generates `Observation` resources for resistance genes, susceptibility assessments, and strain characteristics.
+
     *   Embeds interpretation of "High Risk Clones" and resistance profiles (e.g., ESBL/Carbapenemase producer status).

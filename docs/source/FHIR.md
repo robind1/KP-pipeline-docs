@@ -45,5 +45,5 @@
 | System URI | Description |
 | :--- | :--- |
 | `http://pubmlst.org/klebsiella` | MLST Sequence Types. |
-
 | `http://kaptive.holtlab.net/capsule` | Capsule Typing. |
+

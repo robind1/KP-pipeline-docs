@@ -62,16 +62,13 @@ Performs genomic characterization of the assembled contigs.
     *   **Resistance**: Identifies acquired resistance genes (ESBLs, Carbapenemases) and chromosomal mutations.
 
 ## cgMLST Analysis
+**File:** `cgmlst.nf`
+Performs core genome Multi-Locus Sequence Typing (cgMLST) analysis to assess strain relatedness.
 
-Performs genomic characterization of the assembled contigs.
-
-1.  **Genotyping Tool**: `Kleborate`
-    *   **MLST**: Determines Sequence Type (ST) and Clonal Complex.
-    *   **Serotyping**: Predicts Capsule (K) and O antigen loci using `Kaptive`.
-    *   **Virulence**: Detects key virulence factors (Yersiniabactin, Colibactin, Aerobactin, Salmochelin, RmpADC, RmpA
+1.  **Allele Calling**: `chewBBACA`
+    *   **Process**: Performs allele calling on assembled genomes against a provided cgMLST schema(https://www.cgmlst.org/ncs/schema/Kpneumoniae312/).
 
 ## FHIR Converter
-
 Converts genomic typing data into HL7 FHIR R4 standard resources.
 
 1.  **Input Parsing**: Reads structured Typing and Lineage JSON files.
@@ -84,3 +81,4 @@ Converts genomic typing data into HL7 FHIR R4 standard resources.
     *   Generates `Observation` resources for resistance genes, susceptibility assessments, and strain characteristics.
 
     *   Embeds interpretation of "High Risk Clones" and resistance profiles (e.g., ESBL/Carbapenemase producer status).
+

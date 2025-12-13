@@ -8,7 +8,8 @@ To run this pipeline, you need the following installed on your system:
 *   [Python](https://www.python.org/)
 *   [FastQC](https://github.com/s-andrews/FastQC)
 *   [MultiQC](https://github.com/MultiQC/MultiQC)
-*   [Fastp](https://github.com/OpenGene/fastp) 
+*   [Fastp](https://github.com/OpenGene/fastp)
+*   [chopper](https://github.com/wdecoster/chopper) 
 *   [Miniasm](https://github.com/lh3/miniasm)
 *   [Megahit](https://github.com/voutcn/megahit) 
 *   [Medaka](https://github.com/nanoporetech/medaka)
@@ -21,14 +22,14 @@ To run this pipeline, you need the following installed on your system:
 ## Setup
 1.  Clone the repository for local installation:
     ```bash
-    git clone https://github.com/robind1/KPmutationpipeline.git
-    cd KPmutationpipeline
+    git clone https://github.com/robind1/kp-mutation-pipeline.git
+    cd kpmutationpipeline
     ```
-2.  Installl Docker:
+2.  Install Docker:
     ```bash
     curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh
     ```
-3.  Installl Nextflow:
+3.  Install Nextflow:
     ```bash
     curl -s https://get.nextflow.io | bash
     ```

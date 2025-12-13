@@ -66,7 +66,7 @@ Performs genomic characterization of the assembled contigs.
 Performs core genome Multi-Locus Sequence Typing (cgMLST) analysis to assess strain relatedness.
 
 1.  **Allele Calling**: `chewBBACA`
-    *   **Process**: Performs allele calling on assembled genomes against a provided cgMLST schema(https://www.cgmlst.org/ncs/schema/Kpneumoniae312/).
+    *   **Process**: Performs allele calling on assembled genomes against a provided [cgMLST schema](https://www.cgmlst.org/ncs/schema/Kpneumoniae312/).
 
 ## FHIR Converter
 Converts genomic typing data into HL7 FHIR R4 standard resources.
@@ -81,4 +81,5 @@ Converts genomic typing data into HL7 FHIR R4 standard resources.
     *   Generates `Observation` resources for resistance genes, susceptibility assessments, and strain characteristics.
 
     *   Embeds interpretation of "High Risk Clones" and resistance profiles (e.g., ESBL/Carbapenemase producer status).
+
 

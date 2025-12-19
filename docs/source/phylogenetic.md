@@ -50,7 +50,7 @@ The pipeline iterates through input FHIR JSON bundle. For each file, it extracts
 3.  **`metadata.tsv`**: Sample metadata including Patient ID, Geolocation, and MLST/Conclusion.
 4.  **Visualization:** Rectangular and Radial (Force-directed) renderings of the MST, colored by Sequence Type, heatmap of allelic distances, histogram of allelic distances, and violin plot.
 
-```{image} _static/grapetree.png
+```{image} _static/grapetree.jpeg
 :alt: Radial phylogenetic tree KP example
 :width: 1200px
 :align: center

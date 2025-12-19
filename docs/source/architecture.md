@@ -1,6 +1,6 @@
 # Pipeline Architecture
 
-## Workflow Diagram
+## KP Mutation Workflow
 
 ```{image} _static/kppipelinev1.png
 :alt: Pipeline Architecture Diagram
@@ -8,3 +8,4 @@
 :align: center
 
 ```
+

@@ -1,6 +1,6 @@
 # Input Requirements
 
-The pipeline accepts two types of input data.
+The pipeline accepts these types of input data.
 
 ## Illumina Reads
 *   **Format**: Paired-end FASTQ files (`.fastq.gz`).
@@ -9,4 +9,3 @@ The pipeline accepts two types of input data.
 ## Nanopore Reads
 *   **Format**: Single-end FASTQ files (`.fastq.gz`).
 *   **Naming**: `*_ont.fastq.gz`.
-

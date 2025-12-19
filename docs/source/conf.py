@@ -9,7 +9,7 @@
 project = 'KP Mutation Pipeline'
 copyright = '2025, SPHERES Lab Team'
 author = 'SPHERES Lab Team'
-release = '1.0'
+release = '1.0.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

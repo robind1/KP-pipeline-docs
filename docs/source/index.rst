@@ -1,6 +1,6 @@
 .. KP Mutation Pipeline documentation master file
 
-Platform agnostic KP resistance pipeline
+Platform-agnostic KP resistance pipeline
 ==================================
 
 .. toctree::

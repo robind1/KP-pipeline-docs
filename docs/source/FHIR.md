@@ -3,23 +3,21 @@
 ## Standard Terminologies Used
 
 ### LOINC Codes
-
 | Code | Display Name | Usage |
 | :--- | :--- | :--- |
 | **69548-6** | Genetic variant assessment | Observation resource code |
 | **81247-9** | Master HL7 genetic variant reporting panel | DiagnosticReport resource code |
-| **48018-6** | Gene studied [ID] | Affected gene. |
-| **51961-1** | Genetic variation's effect on drug efficacy | Component code linking gene to drug class. |
+| **48018-6** | Gene studied [ID] | Affected gene |
+| **51961-1** | Genetic variation's effect on drug efficacy | Component code linking gene to drug class |
 | **612-2** | Bacterial strain [Type] in Isolate by Bacteria subtyping | MLST Sequence Type (ST) |
-| **104274-6** | Abnormal clonal sequences [Nucleotide sequence] | Clonal Complex |
-| **52107-0** | Bacterial capsule [Identifier] in Specimen | Capsule Type |
+| **SP000680** | Klebsiella pneumoniae virulence score [Numeric] by genomic analysis | Virulence score |
 | **SP000682** | Core genome MLST [Type] in Isolate by Sequencing | cgMLST |
-
+| **SP000690** | Loci called | cgMLST |
+| **SP000691** | Total loci in scheme | cgMLST |
+| **SP000692** | Call rate | cgMLST |
 
 ### SNOMED CT Codes
-
 **Antimicrobial Classes & Substances**
-
 | Code | Display Name |
 | :--- | :--- |
 | **765422000** | Product containing beta-lactam (product) |
@@ -45,5 +43,3 @@
 | System URI | Description |
 | :--- | :--- |
 | `http://pubmlst.org/klebsiella` | MLST Sequence Types. |
-| `http://kaptive.holtlab.net/capsule` | Capsule Typing. |
-

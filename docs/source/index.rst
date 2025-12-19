@@ -14,12 +14,5 @@ Platform agnostic KP resistance pipeline
    components
    outputs
    FHIR
+   phylogenetic
    version
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-

@@ -2,7 +2,7 @@
 
 ## Main Workflow Controller
 **File:** `main.nf`
-The main workflow handles channel processing and parallel execution. It automatically detects input data types (Illumina or Nanopore) and routes them to the dedicated sub-workflows. All inputs are processed concurrently.
+The main workflow handles channel processing and parallel execution. It automatically detects input data types (Illumina or Nanopore) and routes them to the dedicated sub-workflows.
 
 ## Nanopore (Long-Read) Workflow
 **File:** `nanopore.nf`
@@ -60,7 +60,5 @@ Converts genomic typing data into HL7 FHIR R4 standard resources.
     *   **Capsule Typing**: K-type mapped to LOINC.
     *   **Virulence**: Virulence scores and factors mapped to observation components.
 3.  **Resource Creation**:
-    *   Generates `Observation` resources for resistance genes, strain characteristics, and cgMLST assignment.
-    *   Generates two `DiagnosticReport` resources. First, for the conclusion from all resistance genes detected, and second for the cgMLST statistics.
-
-
+    *   Generates `Observation`, `Drug Susceptibility Observation`, and `cgMLST` resources for resistance genes, strain characteristics, and cgMLST assignment.
+    *   Generates `DiagnosticReport` resources for the conclusion from all resistance genes detected and the cgMLST statistics.

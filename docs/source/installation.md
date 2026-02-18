@@ -1,7 +1,7 @@
 # Installation
 
 ## Prerequisites
-To run this pipeline, you need the following installed on your system:
+To run this pipeline, you need the following prerequisites:
 
 *   [Nextflow](https://www.nextflow.io/)
 *   [Python](https://www.python.org/)
@@ -21,7 +21,7 @@ To run this pipeline, you need the following installed on your system:
 ## Setup
 1.  Clone the repository for local installation:
     ```bash
-    git clone https://github.com/robind1/kp-mutation-pipeline.git
+    git clone https://github.com/oucru-id/kp-to-fhir-full.git
     cd kpmutationpipeline
     ```
 2.  Install Nextflow:
@@ -32,4 +32,3 @@ To run this pipeline, you need the following installed on your system:
     ```bash
     nextflow -v
     ```
-

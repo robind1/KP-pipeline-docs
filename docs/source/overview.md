@@ -1,5 +1,5 @@
 # Overview
-This Pipeline is a Nextflow-based workflow designed for the analysis of Klebsiella pneumoniae genomic data. It processes raw sequencing data (Illumina or Nanopore) to identify antimicrobial resistance (AMR) genes (kleborate), capsule types (kaptive), MLST typing (kleborate), virulence factors (kleborate), cgMLST schema (Ridom), and generates a FHIR-compliant genomics bundle. 
+[This pipeline](https://github.com/oucru-id/kp-to-fhir-full) is a Nextflow-based workflow designed for the analysis of Klebsiella pneumoniae genomic data. It processes raw sequencing data (Illumina or Nanopore) to identify antimicrobial resistance (AMR) genes (kleborate), capsule types (kaptive), MLST typing (kleborate), virulence factors (kleborate), cgMLST schema (Ridom), and generates a FHIR-compliant genomics bundle. 
 
 ## Key Features
 * **Multi-platform Support**: Processes raw read data from diverse platforms.

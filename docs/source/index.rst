@@ -14,5 +14,4 @@ Platform-agnostic KP resistance pipeline
    components
    outputs
    FHIR
-   phylogenetic
    version

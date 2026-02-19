@@ -27,10 +27,18 @@ Each detected resistance feature generates an Observation resource containing:
     *   Each drug result is encoded with a LOINC code and LOINC interpretation (`LA6676-6` = Resistant, `LA24225-7` = Susceptible).
     *   Resistance is inferred from: carbapenemase genes, ESBL genes, aminoglycoside gene mapping (granular per-drug), OmpK35/36 porin mutations, fluoroquinolone target mutations (GyrA, ParC), colistin regulatory mutations (MgrB, PhoP/Q, PmrA/B, CrrA/B), and mobile colistin resistance genes (*mcr*).
 
-### DiagnosticReport Resource (`code: 81247-9`)
-*   **Conclusion**: A human-readable summary including Resistance Classification, MLST Sequence Type, Clonal Complex, Capsule Type, and Virulence Score.
-*   **ConclusionCode**: Structured SNOMED CT or local terminology coding for the resistance classification.
-*   **Presentation**: Contains a Base64-encoded HTML representation of the full report including detected genes, MLST allele profile, and susceptibility data.
+## Clinical Data Integration & Reporting
+
+### Generated Resources
+*   **Patient**: uses `https://fhir.kemkes.go.id/r4/StructureDefinition/Patient` profile.
+*   **Specimen**: Blood sample details.
+*   **ServiceRequest**: Order for genetic assessment.
+*   **Organization**: Testing facility details.
+*   **Practitioner & PractitionerRole**: Medical staff details.
+*   **DiagnosticReport**: 
+    *   **Code**: LOINC `81247-9` (Master HL7 genetic variant reporting panel).
+    *   **Conclusion**: Text summary of resistance and ST.
+    *   **Presentation**: Base64 encoded HTML report.
 
 ## Drug Resistance Classification
 

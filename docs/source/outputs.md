@@ -18,6 +18,7 @@ Each detected resistance feature generates an Observation resource containing:
 
 *   **Capsule & Serotyping**
     *   **K-Type** (`code: SP000678`): Capsule type (e.g., K64), referenced against `http://kaptive.holtlab.net/capsule`.
+    *   **O-antigen** (`code: 612-2`): O-antigen typing (e.g., OL12), referenced against `http://kaptive.holtlab.net/o-antigen`.
 
 *   **Virulence**
     *   **Virulence Score** (`code: SP000680`): Quantitative score (0–5) based on the presence of key virulence factors.

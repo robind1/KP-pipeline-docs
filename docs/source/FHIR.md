@@ -10,7 +10,7 @@
 | **48018-6** | Gene studied [ID] | Component: gene symbol (e.g. *blaCTX-M-15*, GyrA) |
 | **48005-3** | Amino acid change (pHGVS) | Component: pHGVS notation for point mutations (e.g. `p.(Ser83Leu)`) |
 | **51961-1** | Genetic variation's effect on drug efficacy | Component code linking gene to drug class |
-| **612-2** | Bacterial strain [Type] in Isolate by Bacteria subtyping | MLST Sequence Type Observation |
+| **612-2** | Bacterial strain [Type] in Isolate by Bacteria subtyping | MLST Sequence Type & O-antigen Observation |
 | **29576-6** | Bacterial susceptibility panel | Predicted susceptibility panel Observation |
 | **SP000678** | Klebsiella pneumoniae capsular type [Identifier] by genomic analysis | Capsule type (K-type) Observation |
 | **SP000680** | Klebsiella pneumoniae virulence score [Numeric] by genomic analysis | Virulence score Observation (`valueQuantity`) |

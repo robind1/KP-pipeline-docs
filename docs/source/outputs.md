@@ -56,3 +56,32 @@ Each detected resistance feature generates an Observation resource containing:
 | **XDR** | Extensively Drug-Resistant | CRE + colistin resistance (chromosomal mutation or *mcr* gene) | `SP000681` |
 
 > **Note**: Narrow-spectrum SHV variants (e.g., *blaSHV-1*, *blaSHV-11*) are classified as intrinsic and are **excluded** from resistance classification. Chromosomal gene context is detected from observation narrative text and skipped unless the gene confers a higher-tier resistance class.
+
+## Output Directory Structure
+
+```
+results/
+├── qc/
+│   └── multiqc_report.html             # Aggregated QC report
+├── assemblies/
+│   └── *.fasta                         # Polished genome assemblies
+├── typing/
+│   └── *.typing.json                   # Kleborate typing results per sample
+├── cgmlst/
+│   └── results_alleles.tsv             # cgMLST allele calls
+├── fhir/
+│   └── *.fhir.json                     # FHIR genomics bundles
+├── fhir_merged/
+│   └── *.merged.fhir.json              # FHIR bundles with clinical data
+├── fhir_validated/
+│   └── *.validation.txt                # FHIR validation results
+├── fhir_upload/
+│   └── *.upload.json                   # FHIR upload results
+├── reports/
+│   └── *.summary_report.txt            # Per-sample summary reports
+├── runningstat/
+│   ├── execution.html                  # Nextflow execution report
+│   ├── timeline.html                   # Timeline report
+│   └── dag.html                        # Workflow DAG
+└── software_versions.yml               # Software version manifest
+```

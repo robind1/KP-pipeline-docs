@@ -16,6 +16,8 @@
 * Quality control metrics
 * cgMLST schema
 
+## Directory Structure
+
 ```
 kp-to-fhir
 ├── main.nf                             # Main workflow

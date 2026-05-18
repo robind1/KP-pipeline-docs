@@ -15,3 +15,36 @@
 * FHIR-compliant genomic reports 
 * Quality control metrics
 * cgMLST schema
+
+```
+kp-to-fhir
+├── main.nf                             # Main workflow
+├── nextflow.config                     # Configuration and parameters
+├── workflows/
+│   ├── illumina.nf                     # Illumina sub-workflow
+│   ├── nanopore.nf                     # Nanopore sub-workflow
+│   ├── typing.nf                       # Kleborate typing sub-workflow
+│   ├── cgmlst.nf                       # cgMLST sub-workflow
+│   ├── fhir.nf                         # FHIR bundle generation
+│   ├── validate_fhir.nf                # FHIR validation
+│   ├── merge_clinical_data.nf          # Clinical metadata merge
+│   ├── upload_fhir.nf                  # FHIR server upload
+│   ├── report.nf                       # QC and sample report generation
+│   └── utils.nf                        # Utility functions
+├── scripts/
+│   ├── annotated_to_fhir.py            # Kleborate JSON-to-FHIR converter
+│   ├── clinical_metadata_parser.py     # clinical metadata parser
+│   ├── generate_sample_report.py       # Per-sample text report
+│   ├── merge_clinical_fhir.py          # FHIR genomics + clinical data merger
+│   ├── upload_fhir.py                  # FHIR uploader (OAuth 2.0)
+│   ├── get_access_token.py             # Standalone token fetcher
+│   └── get_versions.py                 # Software version collector
+├── data/
+│   ├── NGS/                            # Input FASTQ files
+│   ├── cgmlst_schema/                  # chewBBACA cgMLST schema
+│   ├── patient_clinical_metadata.csv   # Patient metadata
+│   ├── organization_metadata.csv       # Organization metadata
+│   └── practitioner_metadata.csv       # Practitioner metadata
+└── tools/
+    └── fhir-validator.jar              # HL7 FHIR validator
+```

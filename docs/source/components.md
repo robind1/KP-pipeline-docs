@@ -62,3 +62,10 @@ Converts genomic typing data into HL7 FHIR R4 standard resources.
 3.  **Resource Creation**:
     *   Generates `Observation`, `Drug Susceptibility Observation`, and `cgMLST` resources for resistance genes, strain characteristics, and cgMLST assignment.
     *   Generates `DiagnosticReport` resources for the conclusion from all resistance genes detected and the cgMLST statistics.
+
+## Upload to FHIR Server
+**File:** `upload_fhir.nf`
+For uploading FHIR Genomics bundle with clinical metadata. Must grant bearer token first using scripts/get_access_token.py and fill the clinical metadata on each metadata csv (patient, organization, and practitioner). 
+
+## Workflow Parameter 
+`nextflow.config` defines all input files, directories, versioning, and specific tool parameters, relative to the base directory ($baseDir).

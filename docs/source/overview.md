@@ -12,12 +12,6 @@ assembles the genome, then reports:
 The results are HL7 FHIR R4 resources that conform to the
 [Genomics Reporting IG 3.0.0](https://hl7.org/fhir/uv/genomics-reporting/STU3/).
 
-```{note}
-**Version 2.0.0** changes the inputs, the output layout and the FHIR structure of 1.4. Read the
-[breaking changes](https://github.com/oucru-id/kp-to-fhir-full/blob/2.0.0-dev/CHANGELOG.md#breaking-changes)
-before upgrading.
-```
-
 ## Key features
 
 - **Three kinds of input**, given in one samplesheet:
@@ -42,7 +36,7 @@ before upgrading.
   report in a third step.
 - **Two FHIR profiles**:
   - `generic` (default): plain HL7 Genomics Reporting.
-  - `satusehat`: the 1.4 output for the Indonesian Ministry of Health SATUSEHAT platform (Kemkes
+  - `satusehat`: Indonesian Ministry of Health SATUSEHAT platform (Kemkes
     profiles, NIK identifiers, Kemkes codings).
 
 ## What a run produces
@@ -67,12 +61,12 @@ kp-to-fhir-full
 ├── workflows/kpfhir.nf      main workflow
 ├── subworkflows/local/      assembly_illumina, assembly_nanopore, typing, plasmid, cgmlst, fhir
 ├── modules/local/           one process per tool or step
-├── bin/                     Python steps (Kleborate parsing, plasmids, QC, FHIR genomic / clinical / link, upload)
+├── bin/                     Kleborate parsing, plasmids, QC, FHIR genomic / clinical / link, upload
 ├── conf/                    resources, output layout, test profiles
 ├── assets/                  samplesheet schema, FHIR CodeSystems, metadata templates
 ├── tools/cgmlst/            build the chewBBACA schema
 ├── tools/satusehat/         SATUSEHAT token helper
-├── tools/dev/               PHI and credential guard (also a pre-commit hook)
+├── tools/dev/               PHI and credential guard
 ├── tests/                   pytest suite, synthetic fixtures, v1 equivalence goldens
 ├── nextflow.config          parameters and profiles
 └── nextflow_schema.json     parameter schema

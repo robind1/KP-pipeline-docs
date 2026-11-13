@@ -6,17 +6,6 @@ and listed by `nextflow run . --help`. Values are checked against the schema bef
 on Nextflow 25.04, 25.10 and 26.04 alike. Switches accept `--plasmid_analysis`,
 `--plasmid_analysis true` and `--plasmid_analysis false`.
 
-:::{note}
-On Nextflow 25.04 and 25.10, a command-line value that looks like a number is turned into one, so
-leading zeros are lost (`--performer_org_id 0123` becomes `123`). Give such ids in a params file
-instead:
-
-```bash
-printf 'performer_org_id: "0123"\n' > params.yml
-nextflow run . -params-file params.yml --input samplesheet.csv
-```
-:::
-
 ## Most used parameters
 
 | Parameter | Default | Purpose |
@@ -42,7 +31,7 @@ nextflow run . -params-file params.yml --input samplesheet.csv
 | --- | --- | --- |
 | `input` | | Samplesheet CSV with columns `sample,platform,fastq_1,fastq_2,fasta` (platform `illumina`, `ont` or `fasta`). |
 | `reads_dir` | | Folder input: `<id>_1_illumina.fastq.gz` / `<id>_2_illumina.fastq.gz` and `<id>_ont.fastq.gz` files. |
-| `outdir` | `results` | Output directory. (`--results_dir` was removed in 2.0.0.) |
+| `outdir` | `results` | Output directory. |
 
 ### Read processing and assembly
 
@@ -52,8 +41,8 @@ nextflow run . -params-file params.yml --input samplesheet.csv
 | `nanopore_min_q` | `10` | chopper minimum read quality. |
 | `nanopore_min_l` | `500` | chopper minimum read length. |
 | `medaka_model` | `r941_min_sup_g507` | medaka consensus model; must match the flow cell and basecaller of the ONT reads. |
-| `medaka_batch_size` | `20` | medaka inference batch size (lower it when a GPU runs out of memory). |
-| `min_nanopore_coverage` | `30` | Warn, and flag the FHIR report, below this Nanopore read coverage (after chopper). |
+| `medaka_batch_size` | `20` | medaka inference batch size. |
+| `min_nanopore_coverage` | `30` | Warn, and flag the FHIR report, below this Nanopore read coverage. |
 
 ### Plasmid analysis
 
@@ -76,7 +65,7 @@ nextflow run . -params-file params.yml --input samplesheet.csv
 
 | Parameter | Default | Description |
 | --- | --- | --- |
-| `fhir_profile` | `generic` | `generic`: HL7 Genomics Reporting IG 3.0.0 only. `satusehat`: 1.4 output with Kemkes profiles, NIK identifiers and codings. |
+| `fhir_profile` | `generic` | `generic`: HL7 Genomics Reporting IG 3.0.0 only. `satusehat`: output with Kemkes profiles, NIK identifiers and codings. |
 | `performer_org_id` | | FHIR id of the performing laboratory Organization, used as performer in the genomic bundles. |
 | `performer_org_name` | | Display name for the performing laboratory. |
 | `identifier_system_base` | | Base URI for business identifiers in the generic profile (none are emitted if unset). |
@@ -136,14 +125,3 @@ executor {
 ```
 
 and pass it with `-c <file>`.
-
-## Removed and renamed parameters
-
-| 1.4 | 2.0 |
-| --- | --- |
-| `--results_dir` | `--outdir` |
-| `--skip_validation` | `--skip_fhir_validation` |
-| `--skip_upload` | upload runs only with `--fhir_server_url` |
-| `genome_size_bp`, Flye's fixed `5.5m` | `--genome_size` |
-| `--api_key`, `data/access_token.json`, `data/input_sso.json` | Nextflow secrets `KPFHIR_CLIENT_ID`, `KPFHIR_CLIENT_SECRET`, `KPFHIR_API_KEY` |
-| `--nanoplot_env`, `--mobsuite_env` | removed; tools come from containers or conda |

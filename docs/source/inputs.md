@@ -14,7 +14,7 @@ KP0003,fasta,,,/data/KP0003.fasta
 ```
 
 ```bash
-nextflow run oucru-id/kp-to-fhir-full -r 2.0.0-dev -profile docker \
+nextflow run oucru-id/kp-to-fhir-full -r 2.0.0 -profile docker \
   --input samplesheet.csv --outdir results
 ```
 
@@ -31,12 +31,10 @@ cgMLST.
 may be up to 40 characters long. Each id must be unique.
 
 ```{warning}
-Use laboratory accessions as sample ids. Sample ids appear in the genomic FHIR output, which is
-meant to contain no patient data. The pipeline warns when a sample id looks like a 16-digit
-national ID number (NIK).
+Use laboratory accessions as sample ids. Sample ids appear in the genomic FHIR output
 ```
 
-## Folder (1.4 naming)
+## Folder
 
 ```bash
 nextflow run . -profile docker --reads_dir /data/NGS
@@ -45,8 +43,6 @@ nextflow run . -profile docker --reads_dir /data/NGS
 The files in the folder must be named:
 - Illumina: `<id>_1_illumina.fastq.gz` and `<id>_2_illumina.fastq.gz`
 - ONT: `<id>_ont.fastq.gz`
-
-The default `data/NGS` folder of 1.4 is gone: give `--reads_dir` or `--input`.
 
 ## Nanopore reads
 

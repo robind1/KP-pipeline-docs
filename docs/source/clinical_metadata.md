@@ -7,10 +7,8 @@ patient data:
 - **organization table**: the performing laboratory, giving Organization.
 - **practitioner table**: the responsible clinician, giving Practitioner and PractitionerRole.
 
-The columns are the same as TBtoFHIR's, so one table can serve both pipelines.
-
 ```bash
-nextflow run oucru-id/kp-to-fhir-full -r 2.0.0-dev -profile docker --input samplesheet.csv \
+nextflow run oucru-id/kp-to-fhir-full -r 2.0.0 -profile docker --input samplesheet.csv \
   --patient_metadata site/patients.csv \
   --organization_metadata site/organization.csv \
   --practitioner_metadata site/practitioner.csv \
@@ -26,7 +24,7 @@ Header-only templates are in `assets/metadata_templates/`.
 
 A sample with no row in the patient table gets a genomic bundle only. It is listed as
 `missing_clinical` in `fhir/bundle/link_summary.tsv`; `--require_clinical` turns that into an
-error. (1.4 created a placeholder Patient instead.)
+error.
 
 ## File format
 

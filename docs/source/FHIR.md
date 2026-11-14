@@ -5,10 +5,8 @@ KPtoFHIR writes HL7 FHIR R4 that conforms to the
 profiles are available, chosen with `--fhir_profile`:
 
 - **`generic`** (default): HL7 Genomics Reporting only.
-- **`satusehat`**: the 1.4 output for the Indonesian Ministry of Health SATUSEHAT platform (Kemkes
-  profiles, NIK identifiers, Kemkes extensions and codings). It matches the 1.4.2 output apart from
-  the fixes listed in the
-  [changelog](https://github.com/oucru-id/kp-to-fhir-full/blob/2.0.0-dev/CHANGELOG.md#fixed).
+- **`satusehat`**: the output for the Indonesian Ministry of Health SATUSEHAT platform (Kemkes
+  profiles, NIK identifiers, Kemkes extensions and codings).
 
 ## Profiles
 
@@ -69,7 +67,7 @@ The panel has one component per drug, coded with LOINC:
 | Trimethoprim-Sulfamethoxazole | `18998-5` |
 | Colistin | `18912-6` |
 
-Ceftazidime and Cefepime share a code, as in 1.4; the component text names the drug. See
+Ceftazidime and Cefepime share a code, the component text names the drug. See
 [Known limitations](limitations.md#susceptibility-panel-codes).
 
 ## Drug classes
@@ -125,7 +123,7 @@ no SNOMED CT equivalent, so `generic` reports those classes as text only.
 | cgMLST Observation code | `kpfhir-observation-code` `cgmlst-profile` | `SP000682` |
 | cgMLST loci called, loci in scheme, call rate | `cgmlst-loci-called`, `cgmlst-loci-total`, `cgmlst-call-rate` | `SP000690`, `SP000691`, `SP000692` |
 | cgMLST loci | locus name under `https://www.cgmlst.org/ncs` | same |
-| Gene studied | text | coding under `http://www.genenames.org/geneId`, as in 1.4 |
+| Gene studied | text | coding under `http://www.genenames.org/geneId` |
 
 The `SP` codes are in `http://terminology.kemkes.go.id/sp`.
 
@@ -147,8 +145,7 @@ The `SP` codes are in `http://terminology.kemkes.go.id/sp`.
 ## Project CodeSystems
 
 Concepts that no standard code covers use CodeSystems published by the project under
-`http://terminology.spheres.id/CodeSystem/`. Their definitions are in `assets/fhir/` and are
-loaded by the validator. Consumers that do not know them can ignore them safely.
+`http://terminology.spheres.id/CodeSystem/`.
 
 | CodeSystem | Codes |
 | --- | --- |

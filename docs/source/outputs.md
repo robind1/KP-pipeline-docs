@@ -73,12 +73,6 @@ One Observation, LOINC `29576-6` (Bacterial susceptibility panel), with a compon
 (LOINC `LA6676-6`) or **Susceptible** (LOINC `LA24225-7`). The panel's `interpretation` is `N`
 (no acquired resistance) or `A` (acquired resistance to at least one drug).
 
-```{warning}
-The panel is a **genotypic prediction** from a fixed rule set, not a phenotype. **Susceptible**
-means only that no rule fired: no known resistance gene or mutation for that drug was found. It
-does not exclude resistance by mechanisms Kleborate does not detect.
-```
-
 | Drug | Predicted resistant when |
 | --- | --- |
 | Ampicillin | always (intrinsic resistance of *K. pneumoniae*) |
@@ -192,12 +186,6 @@ aminoglycoside, fluoroquinolone, sulfonamide and trimethoprim.
 Narrow-spectrum *SHV* variants (e.g. *SHV-1*, *SHV-11*) are intrinsic to *K. pneumoniae* and are
 left out of the classification. Other intrinsic chromosomal genes count only when they are a
 carbapenemase, ESBL, AmpC or colistin resistance gene.
-```
-
-```{warning}
-An XDR call rests on colistin resistance, and Kleborate reports truncations and frameshifts in
-*MgrB* and *PmrB* as colistin resistance mutations. These can come from assembly or sequencing
-errors. See [Known limitations](limitations.md#colistin-resistance-from-mutations).
 ```
 
 ## Other per-sample files

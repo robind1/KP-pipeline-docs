@@ -1,6 +1,6 @@
 # Pipeline components
 
-The Nextflow code is split into one module per tool or step (`modules/local/`) and subworkflows
+The Nextflow workflow is split into one module per tool or step (`modules/local/`) and subworkflows
 that chain them (`subworkflows/local/`). The diagram is on [Pipeline architecture](architecture.md).
 
 ## Main workflow
@@ -8,8 +8,7 @@ that chain them (`subworkflows/local/`). The diagram is on [Pipeline architectur
 **File:** `workflows/kpfhir.nf`
 
 Reads the samplesheet (or the reads folder), checks the sample ids and routes each sample to the
-branch for its platform. All samples run in parallel. Sample ids are passed to every step
-explicitly and matched exactly; an input file that belongs to another sample is an error.
+branch for its platform. All samples run in parallel.
 
 ## Illumina (short-read) branch
 
@@ -19,15 +18,9 @@ explicitly and matched exactly; an input file that belongs to another sample is 
 2. **Trimming**: fastp with adapter detection for paired-end reads, sliding-window trimming from
    both ends (window 4, mean quality 20), bases of quality ≥ 20 qualified, at most 30% unqualified
    bases per read and a minimum read length of 50.
-3. **Assembly**: SPAdes in `--isolate` mode. Contigs shorter than 500 bp are dropped, and SPAdes'
-   working folder (including its corrected reads) is deleted once the contigs are copied out.
+3. **Assembly**: SPAdes in `--isolate` mode. Contigs shorter than 500 bp are dropped.
 4. **Polishing**: the trimmed reads are mapped back with bwa mem, sorted with samtools, and Pilon
    corrects the assembly. The Java heap is 80% of the task memory.
-
-```{note}
-2.0 assembles Illumina reads with SPAdes instead of MEGAHIT, which 1.4 used. SPAdes is built for
-single isolates, MEGAHIT for metagenomes. Results from Illumina reads therefore differ from 1.4.
-```
 
 ## Nanopore (long-read) branch
 
@@ -38,18 +31,13 @@ single isolates, MEGAHIT for metagenomes. Results from Illumina reads therefore 
 2. **Read QC**: NanoPlot. The read coverage is estimated as the bases left after chopper divided
    by `--genome_size`.
 3. **Assembly**: Flye (`--nano-raw`, `--genome-size`, two polishing iterations).
-4. **Polishing**: medaka with the model given in `--medaka_model`. If inference fails, medaka is
-   retried on the CPU. If polishing still fails, the unpolished assembly is used and the failure is
-   reported.
+4. **Polishing**: medaka with the model given in `--medaka_model`.
 5. **Assembly QC**: the coverage status is `PASS`, `LOW` (below `--min_nanopore_coverage`) or
    `UNKNOWN`. Low coverage and failed polishing become quality warnings in the FHIR report.
 
 ## FASTA input
 
 **File:** `modules/local/prepare_assembly.nf`
-
-A submitted assembly (gzipped or not, local or a URL) is checked to be a FASTA file and used as is.
-It skips read QC and assembly.
 
 ## Typing
 
@@ -67,8 +55,7 @@ It skips read QC and assembly.
      (`klebsiella_pneumo_complex__wzi`).
 2. **Parsing** (`bin/kp_parse_kleborate.py`): the Kleborate table becomes
    `typing/<id>_typing.json` (MLST, capsule, O locus, virulence, resistance genes and mutations)
-   and `typing/<id>_lineage.json`. Kleborate's `Bla_chr` genes are marked intrinsic. A
-   header-only or non-Kleborate table is an error.
+   and `typing/<id>_lineage.json`. Kleborate's `Bla_chr` genes are marked intrinsic.
 
 ## Plasmid analysis
 
@@ -93,7 +80,7 @@ It skips read QC and assembly.
    depends on the input: `long-read` (ONT), `predicted (short-read)` (Illumina) or
    `predicted (submitted assembly)` (FASTA).
 5. **Plasmid sharing**: `plasmid/plasmid_sharing.tsv` lists every MOB-suite plasmid cluster in the
-   run with its replicons, mobility, resistance genes and the samples that carry it, most widely
+   run with its replicons, mobility, resistance genes, and the samples that carry it, most widely
    shared first.
 
 ## cgMLST

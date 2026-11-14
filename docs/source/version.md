@@ -2,8 +2,7 @@
 
 ## Pipeline version
 
-**2.0.0** (in development on the
-[`2.0.0-dev`](https://github.com/oucru-id/kp-to-fhir-full/tree/2.0.0-dev) branch)
+**2.0.0**
 
 ## Software
 
@@ -11,7 +10,7 @@
 | --- | --- |
 | FastQC | 0.12.1 |
 | fastp | 0.23.4 |
-| SPAdes | 4.3.0 (new in 2.0; replaces MEGAHIT 1.2.9) |
+| SPAdes | 4.3.0 |
 | bwa | 0.7.17 |
 | samtools | 1.21 |
 | Pilon | 1.24 |
@@ -26,9 +25,6 @@
 | MultiQC | 1.30 |
 | HL7 FHIR validator | 6.5.26 |
 | Python / Java | 3.12 / 21 |
-
-Apart from SPAdes, these are the versions that produced the 1.4.2 results. The versions used in a
-run are collected in `pipeline_info/software_versions.yml`.
 
 ## Databases
 
@@ -57,8 +53,7 @@ run are collected in `pipeline_info/software_versions.yml`.
 - **Containers or conda** for every process.
 
 See the
-[changelog](https://github.com/oucru-id/kp-to-fhir-full/blob/2.0.0-dev/CHANGELOG.md) for every
-change, including the breaking changes and fixes.
+[changelog](https://github.com/oucru-id/kp-to-fhir-full/blob/2.0.0-dev/CHANGELOG.md).
 
 ## References
 

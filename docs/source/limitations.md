@@ -3,9 +3,7 @@
 ## No species identification
 
 Every sample is assumed to be *K. pneumoniae*. Kleborate runs without its species module, so the
-output has no species call. Confirm the species separately, for example with Kleborate's
-`enterobacterales__species` module or another species check, to catch other *Klebsiella* species
-or contamination.
+output has no species call.
 
 ## Colistin resistance from mutations
 

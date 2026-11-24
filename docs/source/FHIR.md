@@ -5,8 +5,7 @@ KPtoFHIR writes HL7 FHIR R4 that conforms to the
 profiles are available, chosen with `--fhir_profile`:
 
 - **`generic`** (default): HL7 Genomics Reporting only.
-- **`satusehat`**: the output for the Indonesian Ministry of Health SATUSEHAT platform (Kemkes
-  profiles, NIK identifiers, Kemkes extensions and codings).
+- **`satusehat`**: the output for the Indonesian SATUSEHAT platform.
 
 ## Profiles
 
@@ -22,9 +21,6 @@ Genomics Reporting profiles are under
 | DiagnosticReport | Genomics Reporting `genomic-report` | Genomics Reporting `genomics-report` |
 | Patient, Specimen, Encounter, ServiceRequest, Organization, Practitioner, PractitionerRole | base FHIR R4 | Kemkes profile of the same name |
 | Bundle | base FHIR R4 | Kemkes `Bundle` |
-
-`satusehat` also tags the Observations, DiagnosticReport, Device and Provenance with `genomics`
-(`http://terminology.kemkes.go.id/sp`).
 
 ## LOINC codes
 
@@ -66,8 +62,6 @@ The panel has one component per drug, coded with LOINC:
 | Amikacin | `18860-7` |
 | Trimethoprim-Sulfamethoxazole | `18998-5` |
 | Colistin | `18912-6` |
-
-Each component's display is `<drug> [Susceptibility]` and its text is the drug name.
 
 ## Drug classes
 

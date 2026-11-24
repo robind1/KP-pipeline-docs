@@ -14,7 +14,7 @@ KP0003,fasta,,,/data/KP0003.fasta
 ```
 
 ```bash
-nextflow run oucru-id/kp-to-fhir-full -r 2.0.0 -profile docker \
+nextflow run oucru-id/kp-to-fhir-full -r v2.0.1 -profile docker \
   --input samplesheet.csv --outdir results
 ```
 
@@ -47,8 +47,10 @@ The files in the folder must be named:
 ## Nanopore reads
 
 - `--medaka_model` must match the flow cell and basecaller. The default, `r941_min_sup_g507`, suits
-  R9.4.1 flow cells; set the model for R10 data. List the available models with
-  `medaka tools list_models`.
+  R9.4.1 flow cells; set the model for R10 data, e.g. `r1041_e82_400bps_sup_v5.0.0` for R10.4.1
+  reads basecalled at 400 bps with a super-accuracy model. List the available models with
+  `medaka tools list_models`. medaka downloads the model on first use, so the run needs internet
+  access.
 - `--genome_size` (default `5.5m`) is passed to Flye and used to estimate read coverage.
 - Below `--min_nanopore_coverage` (default 30×) after read filtering, the report carries a quality
   warning.

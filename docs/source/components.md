@@ -31,9 +31,14 @@ branch for its platform. All samples run in parallel.
 2. **Read QC**: NanoPlot. The read coverage is estimated as the bases left after chopper divided
    by `--genome_size`.
 3. **Assembly**: Flye (`--nano-raw`, `--genome-size`, two polishing iterations).
-4. **Polishing**: medaka with the model given in `--medaka_model`.
-5. **Assembly QC**: the coverage status is `PASS`, `LOW` (below `--min_nanopore_coverage`) or
-   `UNKNOWN`. Low coverage and failed polishing become quality warnings in the FHIR report.
+4. **Polishing**: medaka with the model given in `--medaka_model`, downloaded on first use. If
+   polishing fails, the unpolished Flye assembly is used.
+5. **Assembly QC** (`bin/assembly_qc.py`): the coverage status is `PASS`, `LOW` (below
+   `--min_nanopore_coverage`) or `UNKNOWN`. The QC status is `FAIL` when polishing failed,
+   `WARNING` for low or unknown coverage, otherwise `PASS`. Warnings are carried into the FHIR
+   report. For an unpolished assembly, frameshift, insertion and deletion mutation calls are
+   withheld from the panel and the variant Observations, because base-call errors in unpolished
+   assemblies produce false truncations.
 
 ## FASTA input
 

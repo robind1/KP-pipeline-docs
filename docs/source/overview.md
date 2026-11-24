@@ -30,7 +30,8 @@ The results are HL7 FHIR R4 resources that conform to the
   - a table of the plasmid clusters shared between samples.
 - **cgMLST** with chewBBACA and the cgMLST.org *K. pneumoniae* sensu lato scheme (2,358 loci).
 - **QC**: FastQC and fastp (Illumina) or NanoPlot (ONT), collected in MultiQC. For ONT reads, a
-  low read coverage is carried into the FHIR report as a quality warning.
+  low read coverage or a failed medaka polishing is carried into the FHIR report as a quality
+  warning.
 - **Genomic FHIR without patient data, by default.** The genomic report refers to the patient by
   id only. Clinical resources are built in a separate, optional step and joined to the genomic
   report in a third step.
@@ -71,3 +72,5 @@ kp-to-fhir-full
 ├── nextflow.config          parameters and profiles
 └── nextflow_schema.json     parameter schema
 ```
+
+KPtoFHIR is released under the GPL-3.0 licence.

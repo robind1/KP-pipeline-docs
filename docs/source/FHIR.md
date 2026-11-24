@@ -58,7 +58,7 @@ The panel has one component per drug, coded with LOINC:
 | Amoxicillin-Clavulanate | `18861-5` |
 | Piperacillin-Tazobactam | `18970-4` |
 | Cefotaxime | `18876-3` |
-| Ceftazidime | `18879-7` |
+| Ceftazidime | `18893-8` |
 | Cefepime | `18879-7` |
 | Meropenem | `18943-1` |
 | Ciprofloxacin | `18906-8` |
@@ -67,8 +67,7 @@ The panel has one component per drug, coded with LOINC:
 | Trimethoprim-Sulfamethoxazole | `18998-5` |
 | Colistin | `18912-6` |
 
-Ceftazidime and Cefepime share a code, the component text names the drug. See
-[Known limitations](limitations.md#susceptibility-panel-codes).
+Each component's display is `<drug> [Susceptibility]` and its text is the drug name.
 
 ## Drug classes
 

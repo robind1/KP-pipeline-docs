@@ -11,7 +11,7 @@ flowchart TD
     IN --> ONT["ONT<br/>chopper · NanoPlot · Flye · medaka"]
     IN --> FA["FASTA<br/>used as is"]
     ILL & ONT & FA --> ASM[("Assembly")]
-    ONT --> QC["Read coverage QC"]
+    ONT --> QC["Coverage and polishing QC"]
     ASM --> TYP["Kleborate<br/>MLST · K/O loci · virulence · AMR"]
     ASM --> PLA["MOB-suite · minimap2<br/>plasmids, gene location"]
     ASM --> CG["chewBBACA cgMLST<br/>(with --cgmlst_schema)"]

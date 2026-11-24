@@ -2,7 +2,7 @@
 
 ## Pipeline version
 
-**2.0.0**
+**2.0.1**
 
 ## Software
 
@@ -37,6 +37,22 @@
   `PrepExternalSchema`.
 - **FHIR**: the Genomics Reporting IG package `hl7.fhir.uv.genomics-reporting#3.0.0`.
 
+## What changed in 2.0.1
+
+- **Susceptibility panel rules**, revised against two public phenotype datasets:
+  - *aac(6')-Ib-cr* no longer predicts amikacin resistance, and no longer predicts ciprofloxacin
+    resistance on its own;
+  - the meropenem porin rule no longer counts the *OmpK36* loop-3 insertion (`GD`, `TD`);
+  - trimethoprim-sulfamethoxazole needs a *dfr* gene; a *sul* gene alone no longer predicts
+    resistance.
+- **Ceftazidime** has its own LOINC code, `18893-8`.
+- **medaka polishing works in containers.** medaka downloads its model on first use, so Nanopore
+  samples need internet access.
+- **Unpolished Nanopore assemblies**: when medaka fails, the sequencing QC status is `FAIL` and
+  frameshift, insertion and deletion mutation calls are withheld (see
+  [Outputs](outputs.md#sequencing-qc-observation)).
+- **Licence**: GPL-3.0.
+
 ## What changed in 2.0
 
 - **Inputs**: a samplesheet (`--input`) with Illumina, ONT and FASTA samples; the 1.4 folder input
@@ -53,7 +69,7 @@
 - **Containers or conda** for every process.
 
 See the
-[changelog](https://github.com/oucru-id/kp-to-fhir-full/blob/2.0.0-dev/CHANGELOG.md).
+[changelog](https://github.com/oucru-id/kp-to-fhir-full/blob/main/CHANGELOG.md).
 
 ## References
 

@@ -79,14 +79,16 @@ One Observation, LOINC `29576-6` (Bacterial susceptibility panel), with a compon
 | Amoxicillin-clavulanate | a carbapenemase gene |
 | Piperacillin-tazobactam | a carbapenemase or ESBL gene |
 | Cefotaxime, Ceftazidime, Cefepime | a carbapenemase or ESBL gene |
-| Meropenem | a carbapenemase gene, or an ESBL gene together with mutations in both *OmpK35* and *OmpK36* |
-| Ciprofloxacin | a fluoroquinolone resistance gene (e.g. *qnr*, *aac(6')-Ib-cr*) or a *GyrA* / *ParC* mutation |
+| Meropenem | a carbapenemase gene, or an ESBL gene together with mutations in both *OmpK35* and *OmpK36*. The *OmpK36* loop-3 insertion (`GD`, `TD`, `p.134_135insGlyAsp`) does not count |
+| Ciprofloxacin | a fluoroquinolone resistance gene (e.g. *qnr*) or a *GyrA* / *ParC* mutation. *aac(6')-Ib-cr* alone does not count |
 | Gentamicin | an aminoglycoside gene active against gentamicin: *aac(3)* genes, *aac(6')-II*, *ant(2'')*, and the 16S rRNA methylases *armA*, *rmtA*–*rmtH*, *npmA*. Any other unknown *aac* / *ant* / *aph* gene also counts, as a precaution |
-| Amikacin | an aminoglycoside gene active against amikacin: *aac(6')-I* genes including *aac(6')-Ib-cr*, *aac(6')-II*, *aac(3)-IV*, *ant(4')*, *aph(3')-VI*, and the 16S rRNA methylases |
-| Trimethoprim-sulfamethoxazole | a *dfr* (trimethoprim) or *sul* (sulfonamide) gene |
+| Amikacin | an aminoglycoside gene active against amikacin: *aac(6')-I* genes (e.g. *aac(6')-Ib*, *aac(6')-Ib'*) except *aac(6')-Ib-cr*, *aac(6')-II*, *aac(3)-IV*, *ant(4')*, *aph(3')-VI*, and the 16S rRNA methylases |
+| Trimethoprim-sulfamethoxazole | a *dfr* (trimethoprim) gene. A *sul* (sulfonamide) gene alone does not count |
 | Colistin | an *mcr* or other colistin resistance gene, or a mutation in *MgrB*, *PhoP*, *PhoQ*, *PmrA*, *PmrB*, *CrrA* or *CrrB* |
 
 AmpC genes do not change the panel; they count towards the [classification](#resistance-classification).
+For an unpolished Nanopore assembly, frameshift, insertion and deletion mutations are left out of
+the panel (see [Sequencing QC Observation](#sequencing-qc-observation)).
 
 ### Typing Observations
 
@@ -124,10 +126,19 @@ so read Illumina results as predictions.
 
 ### Sequencing QC Observation
 
-For ONT samples, code `sequencing-qc`. The value is the coverage status (`PASS`, `LOW` or
-`UNKNOWN`). Components: platform, estimated and minimum read coverage, polishing result, and each
-quality warning. With a warning, the interpretation is `A` (abnormal), and the DiagnosticReport
-conclusion says to interpret the results with caution.
+For ONT samples, code `sequencing-qc`. The value is the QC status:
+- `FAIL`: medaka polishing failed and the unpolished assembly was used;
+- `WARNING`: the read coverage is low or could not be estimated;
+- `PASS`: neither.
+
+Components: platform, estimated and minimum read coverage, coverage status (`PASS`, `LOW` or
+`UNKNOWN`), polishing (tool, result and model), and each quality warning. With a warning, the
+interpretation is `A` (abnormal), and the DiagnosticReport conclusion says to interpret the results
+with caution.
+
+When polishing failed, frameshift, insertion and deletion mutation calls (e.g. porin, *MgrB* or
+*PmrB* truncations) are withheld from the panel and the variant Observations, and a warning gives
+their number. Base-call errors in unpolished assemblies produce false truncations.
 
 ### DiagnosticReport
 

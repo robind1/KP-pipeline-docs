@@ -30,10 +30,6 @@ confidence of each plasmid result is recorded in the plasmid Observations.
 chewBBACA adds newly inferred alleles to the schema during allele calling. Keep one copy of the
 schema per analysis series, so that allele numbers stay comparable within the series.
 
-## Susceptibility panel codes
-
-Ceftazidime and Cefepime share LOINC `18879-7` in the panel.
-
 ## Drug classes without a code
 
 Genes from Kleborate's `Phe` (phenicol), `Fcyn` (fosfomycin), `Gly` (glycopeptide) and `Tgc`

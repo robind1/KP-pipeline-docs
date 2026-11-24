@@ -16,6 +16,14 @@
 A `slurm` profile is also provided for clusters. Combine it with one of the profiles above, e.g.
 `-profile slurm,singularity`.
 
+### Notes for container runs
+
+- The Python image has no `openpyxl`, so give `.xlsx` clinical metadata as CSV, or use
+  `-profile conda`.
+- medaka runs on the CPU in containers. It retries on the CPU if GPU inference fails.
+- medaka downloads its model (`--medaka_model`) on first use in each task, so Nanopore samples
+  need internet access.
+
 Install Nextflow:
 
 ```bash
@@ -28,13 +36,13 @@ curl -s https://get.nextflow.io | bash
 Run it straight from GitHub:
 
 ```bash
-nextflow run oucru-id/kp-to-fhir-full -r 2.0.0 -profile docker --input samplesheet.csv --outdir results
+nextflow run oucru-id/kp-to-fhir-full -r v2.0.1 -profile docker --input samplesheet.csv --outdir results
 ```
 
 Or clone it and run the local copy:
 
 ```bash
-git clone -b 2.0.0 https://github.com/oucru-id/kp-to-fhir-full.git
+git clone -b v2.0.1 https://github.com/oucru-id/kp-to-fhir-full.git
 cd kp-to-fhir-full
 nextflow run . -profile docker --input samplesheet.csv --outdir results
 ```

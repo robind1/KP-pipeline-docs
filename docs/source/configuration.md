@@ -1,7 +1,7 @@
 # Configuration
 
 Every parameter is defined in
-[`nextflow_schema.json`](https://github.com/oucru-id/kp-to-fhir-full/blob/2.0.0-dev/nextflow_schema.json)
+[`nextflow_schema.json`](https://github.com/oucru-id/kp-to-fhir-full/blob/main/nextflow_schema.json)
 and listed by `nextflow run . --help`. Values are checked against the schema before anything runs,
 on Nextflow 25.04, 25.10 and 26.04 alike. Switches accept `--plasmid_analysis`,
 `--plasmid_analysis true` and `--plasmid_analysis false`.
@@ -40,7 +40,7 @@ on Nextflow 25.04, 25.10 and 26.04 alike. Switches accept `--plasmid_analysis`,
 | `genome_size` | `5.5m` | Expected genome size, for Flye (`--genome-size`) and the Nanopore coverage estimate. |
 | `nanopore_min_q` | `10` | chopper minimum read quality. |
 | `nanopore_min_l` | `500` | chopper minimum read length. |
-| `medaka_model` | `r941_min_sup_g507` | medaka consensus model; must match the flow cell and basecaller of the ONT reads. |
+| `medaka_model` | `r941_min_sup_g507` | medaka consensus model; must match the flow cell and basecaller of the ONT reads (e.g. `r1041_e82_400bps_sup_v5.0.0` for R10.4.1). Downloaded on first use. |
 | `medaka_batch_size` | `20` | medaka inference batch size. |
 | `min_nanopore_coverage` | `30` | Warn, and flag the FHIR report, below this Nanopore read coverage. |
 

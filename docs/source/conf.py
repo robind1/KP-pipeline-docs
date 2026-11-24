@@ -1,7 +1,7 @@
 project = "KPtoFHIR"
 copyright = "2026, SPHERES OUCRU-ID"
 author = "SPHERES OUCRU-ID"
-release = "2.0.0"
+release = "2.0.1"
 
 extensions = [
     "myst_parser",

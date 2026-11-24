@@ -14,10 +14,10 @@ The results are HL7 FHIR R4 resources that conform to the
 
 ## Key features
 
-- **Three kinds of input**, given in one samplesheet:
-  - Illumina paired-end reads, assembled with fastp, SPAdes and Pilon;
-  - Oxford Nanopore reads, assembled with chopper, Flye and medaka;
-  - finished assemblies (FASTA), which go straight to typing.
+- **Three kinds of input**:
+  - Illumina paired-end reads;
+  - Oxford Nanopore reads;
+  - finished assemblies (FASTA).
 - **Kleborate 3 typing**:
   - MLST, capsule (K) and O loci, virulence loci, and Kleborate's virulence and resistance scores;
   - acquired resistance genes and point mutations;
@@ -37,8 +37,7 @@ The results are HL7 FHIR R4 resources that conform to the
   report in a third step.
 - **Two FHIR profiles**:
   - `generic` (default): plain HL7 Genomics Reporting.
-  - `satusehat`: Indonesian Ministry of Health SATUSEHAT platform (Kemkes
-    profiles, NIK identifiers, Kemkes codings).
+  - `satusehat`: Indonesian SATUSEHAT platform.
 
 ## What a run produces
 
